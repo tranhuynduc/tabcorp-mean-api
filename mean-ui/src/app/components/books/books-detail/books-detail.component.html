@@ -1,0 +1,11 @@
+<div class="book-wrapper">
+  <button type="button" class="close" aria-label="Close" (click)="onDelete(book.id)">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="book-title text-center">
+    <h4 class="text-bold">{{book.title}} </h4>
+    <h6>({{getCategory(book.category)}})</h6>
+  </div>
+  <p></p>
+  <p>{{book.description}}</p>
+</div>
