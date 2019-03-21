@@ -7,14 +7,12 @@ MEAN app
 
 ## Installation
 
-### Without API
 ```
 npm install
 ```
 
 ## Usage
 
-### Without API
 ```
 npm run start
 ```
