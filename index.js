@@ -4,7 +4,7 @@ const app = express();
 require('./models');
 const routes = require('./routes');
 
-const cors = require('cors');
+// const cors = require('cors');
 
 const CONFIG = require('./config/configs');
 
