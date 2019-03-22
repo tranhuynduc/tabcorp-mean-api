@@ -6,7 +6,7 @@
     content: '';
     width: 50px;
     height: 1px;
-    background: #000;
+    background: #ced4da;
     left: 50%;
     bottom: -10px;
     transform: translateX(-50%);
@@ -14,7 +14,7 @@
 }
 
 .book-wrapper {
-  border: 1px solid #000;
+  border: 1px solid #ced4da;
   padding: 10px 20px;
   width: 100%;
   margin-bottom: 30px;
@@ -31,4 +31,9 @@
     outline: 0;
     border: 0;
   }
+}
+
+.description {
+  line-height: 24px;
+  overflow: hidden;
 }

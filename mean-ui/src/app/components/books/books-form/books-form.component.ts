@@ -4,7 +4,6 @@ import { IBook } from 'src/app/interfaces/book';
 import { Book } from 'src/app/models/book';
 import { IBookCategory } from 'src/app/interfaces/book-category';
 import { FormGroup, FormGroupDirective } from '@angular/forms';
-
 @Component({
   selector: 'app-books-form',
   templateUrl: './books-form.component.html',
@@ -21,10 +20,18 @@ export class BooksFormComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.bookService.bookCategory.subscribe((data: IBookCategory[]) => this.categories = data)
+    this.bookService.bookCategory.subscribe((data: IBookCategory[]) => {
+      if (data && data.length) {
+        this.categories = data
+        this.book.category = this.categories[0].id;
+      }
+    })
   }
 
   onAddBook(e) {
+    this.book.title = this.book.title.trim();
+    this.book.description = this.book.description.trim();
+
     if (this.bookForm.invalid) {
       return;
     }
