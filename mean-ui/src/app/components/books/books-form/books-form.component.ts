@@ -51,8 +51,9 @@ export class BooksFormComponent implements OnInit {
     e.preventDefault();
     this.bookService.addBook(this.book).subscribe(() => {
       this.book = new Book();
-      this.bookForm.resetForm();
-      this.setDefaultCategory();
+      this.bookForm.resetForm({
+        category: this.categories[0].id
+      });
     });
   }
 }
