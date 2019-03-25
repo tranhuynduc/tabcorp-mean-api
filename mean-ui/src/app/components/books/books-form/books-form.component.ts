@@ -34,9 +34,15 @@ export class BooksFormComponent implements OnInit {
     }
   }
 
+  removeSpace(key) {
+    if (this.book[key]) {
+      this.book[key] = this.book[key].trim();
+    }
+  }
+
   onAddBook(e) {
-    this.book.title = this.book.title.trim();
-    this.book.description = this.book.description.trim();
+    this.removeSpace('title');
+    this.removeSpace('description');
 
     if (this.bookForm.invalid) {
       return;
