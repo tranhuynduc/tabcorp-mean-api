@@ -22,10 +22,16 @@ export class BooksFormComponent implements OnInit {
   ngOnInit() {
     this.bookService.bookCategory.subscribe((data: IBookCategory[]) => {
       if (data && data.length) {
-        this.categories = data
-        this.book.category = this.categories[0].id;
+        this.categories = data;
+        this.setDefaultCategory();
       }
     })
+  }
+
+  setDefaultCategory() {
+    if (this.categories.length) {
+      this.book.category = this.categories[0].id;
+    }
   }
 
   onAddBook(e) {
@@ -39,7 +45,8 @@ export class BooksFormComponent implements OnInit {
     e.preventDefault();
     this.bookService.addBook(this.book).subscribe(() => {
       this.book = new Book();
-      this.bookForm.resetForm()
+      this.bookForm.resetForm();
+      this.setDefaultCategory();
     });
   }
 }
