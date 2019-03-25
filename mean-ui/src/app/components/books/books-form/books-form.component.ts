@@ -12,7 +12,7 @@ import { FormGroup, FormGroupDirective } from '@angular/forms';
 export class BooksFormComponent implements OnInit {
   categories: IBookCategory[] = [];
   book: IBook = new Book();
-  @ViewChild('bookForm') bookForm: FormGroupDirective
+  @ViewChild('bookForm') bookForm
   ;
 
   constructor(
@@ -35,10 +35,11 @@ export class BooksFormComponent implements OnInit {
   }
 
   onAddBook(e) {
-
-    this.book.title = this.book.title.trim();
-    this.book.description = this.book.description.trim();
-
+    this.bookForm.setValue({
+      title: this.book.title.trim(),
+      description: this.book.title.trim(),
+      category: this.book.category
+    });
     if (this.bookForm.invalid) {
       return;
     }
